@@ -14,7 +14,7 @@ A simple API for managing tasks, built with Express and MongoDB.
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/ideateGudy/simple-task-api.git
    ```
 2. Navigate to the project directory:
    ```bash
