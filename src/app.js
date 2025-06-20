@@ -8,6 +8,7 @@ import taskRoutes from "./routes/task.routes.js";
 
 // Connect to MongoDB
 import connectDB from "./config/connectDB.js";
+import { ApiError } from "./utils/ApiError.js";
 connectDB();
 
 // Initialize Express app
@@ -26,15 +27,11 @@ app.get("/", (_req, res) => {
   res.status(200).json({ success: true, message: "Server is healthy" });
 });
 
-// Handle other requests
-app.use((req, res, next) => {
+//Catch-all route for undefined routes
+app.use((req, _res, next) => {
   const method = req.method;
   const url = req.originalUrl;
-  res.status(404).json({
-    success: false,
-    message: `Cannot find method: ${method} for ${url} - Not Found`,
-  });
-  next();
+  next(new ApiError(`Cannot find method: ${method} for endpoint: ${url}`, 404));
 });
 
 // Middleware to handle errors
