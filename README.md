@@ -2,11 +2,17 @@
 
 A simple API for managing tasks, built with Express and MongoDB.
 
+# Technologies Used
+
+- Node.js + Express.js
+- MongoDB + Mongoose
+- Winston + Winston-daily-rotate-file + Morgan
+- Joi + Celebrate (for validation)
+
 # Features
 
 - Create, read, update, and delete tasks
-- Task completion status
-- Task due dates
+- Update task completion status
 - Task filtering by completion status
 - Logging with Morgan and Winston
 
